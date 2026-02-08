@@ -54,13 +54,13 @@ Restaurant getRestaurant() {
     cout << "Enter restaurant name: ";
     getline(cin, r.name); // getline() is used as name and address may contain spaces
 
-    cout << "Ender restaurant address: ";
+    cout << "Enter restaurant address: ";
     getline(cin, r.address);
 
     cout << "Enter restaurant rating: ";
     cin >> r.rating; // cin is used because rating, years_open and daily_customers will not contain spaces
 
-    // validate rating
+    // Validate rating
     while (r.rating < 0.0 || r.rating > 5.0) {
         cout << "Invalid rating, must be between 0.0 and 5.0: ";
         cin >> r.rating;
@@ -71,6 +71,10 @@ Restaurant getRestaurant() {
 
     cout << "Enter daily customers: ";
     cin >> r.daily_customers;
+
+    // Clear the input buffer from the leftover newline
+    cin.ignore();
+    cout << endl;
 
     return r;
 }
